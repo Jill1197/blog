@@ -1,0 +1,13 @@
+<h2>Manage Posts</h2>
+<a href="/admin/create" class="button">+ New Post</a>
+<a href="/admin/logout" class="button" style="background:#f44336;">Logout</a>
+
+<ul>
+<% posts.forEach(p => { %>
+  <li class="post">
+    <%= p.title %>
+    <a href="/admin/edit/<%= p.id %>" class="button">Edit</a>
+    <a href="/admin/delete/<%= p.id %>" class="button" style="background:#f44336;">Delete</a>
+  </li>
+<% }) %>
+</ul>
