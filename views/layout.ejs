@@ -3,42 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><%= title || siteName %></title>
+<title><%= title || 'My Blog' %></title>
 <link rel="stylesheet" href="/css/style.css">
-
-<% if (showAds) { %>
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6975913662182448"
-  crossorigin="anonymous"></script>
-<% } %>
 </head>
 <body>
-
 <header>
   <div class="container">
-    <h1><%= siteName %></h1>
+    <h1>My Blog</h1>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6975913662182448"
+     crossorigin="anonymous"></script>
     <nav>
       <a href="/">Home</a>
-      <a href="/about">About</a>
       <a href="/privacy">Privacy Policy</a>
-      <a href="/contact">Contact</a>
-
       <% if (admin) { %>
         | <a href="/admin">Admin</a>
         | <a href="/admin/logout">Logout</a>
       <% } %>
     </nav>
-
   </div>
 </header>
 
 <main class="container">
-  <%- body %>
+<%- body %>
 </main>
 
 <footer>
-  <p>© 2026 <%= siteName %></p>
+  <p>© 2026 My Blog</p>
 </footer>
-
 </body>
 </html>
