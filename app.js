@@ -26,6 +26,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/privacy-policy', (req, res) => {
+    res.render('privacy', {
+        siteName: 'jav789vk.zyx'
+    });
+});
+
 // Routes
 app.use('/', require('./routes/home'));
 app.use('/admin', require('./routes/admin'));
