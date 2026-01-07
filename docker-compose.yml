@@ -7,22 +7,23 @@ networks:
 services:
   app:
     build: .
+    container_name: blog_app
     expose:
       - "3000"
+    environment:
+      NODE_ENV: production
     volumes:
-      - .:/usr/src/app:cached
-      - /usr/src/app/node_modules
-      - ./database.sqlite:/usr/src/app/database.sqlite
+      - ./db.sqlite:/usr/src/app/db.sqlite
       - ./public:/usr/src/app/public
       - ./access.log:/usr/src/app/access.log
       - ./essential-access.log:/usr/src/app/essential-access.log
-    environment:
-      NODE_ENV: development
     networks:
       - mynetwork
+    restart: unless-stopped
 
   caddy:
-    image: caddy:2
+    image: caddy:2.7.6
+    container_name: blog_caddy
     ports:
       - "80:80"
       - "443:443"
@@ -32,6 +33,7 @@ services:
       - caddy_config:/config
     networks:
       - mynetwork
+    restart: unless-stopped
 
 volumes:
   caddy_data:
