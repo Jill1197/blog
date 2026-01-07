@@ -32,6 +32,32 @@ app.get('/privacy-policy', (req, res) => {
     });
 });
 
+// About Us
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About Us',
+    admin: req.session?.admin || false
+  });
+});
+
+// Contact
+app.get('/contact', (req, res) => {
+  res.render('contact', {
+    title: 'Contact Us',
+    admin: req.session?.admin || false
+  });
+});
+
+// Privacy Policy
+app.get('/privacy', (req, res) => {
+  res.render('privacy', {
+    title: 'Privacy Policy',
+    siteName: 'My Blog',
+    admin: req.session?.admin || false
+  });
+});
+
+
 // Routes
 app.use('/', require('./routes/home'));
 app.use('/admin', require('./routes/admin'));
